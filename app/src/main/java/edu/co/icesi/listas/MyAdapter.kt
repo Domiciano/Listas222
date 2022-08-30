@@ -2,6 +2,7 @@ package edu.co.icesi.listas
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
@@ -17,7 +18,9 @@ class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
         val dataItem = data[position]
         holder.nameTV.text = dataItem.name
         holder.phoneTV.text = dataItem.phone
-
+        holder.actionBTN.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "${dataItem.name}", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun getItemCount(): Int {
